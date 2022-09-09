@@ -12,32 +12,42 @@ export default function Postdetails({ post }) {
   );
 }
 
-export async function getStaticPaths() {
-  const res = await fetch("https://lwsumit.herokuapp.com/blogs");
-  const data = await res.json();
-  const paths = data?.map((post) => {
-    return {
-      params: {
-        postId: `${post.id}`,
-      },
-    };
-  });
-  return {
-    paths,
-    fallback: false,
-  };
-}
+// export async function getStaticPaths() {
+//   const res = await fetch("https://lwsumit.herokuapp.com/blogs");
+//   const data = await res.json();
+//   const paths = data?.map((post) => {
+//     return {
+//       params: {
+//         postId: `${post.id}`,
+//       },
+//     };
+//   });
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
-  console.log(params);
+// export async function getStaticProps({ params }) {
+//   console.log(params);
 
+//   const res = await fetch(
+//     `https://lwsumit.herokuapp.com/blogs/${params.postId}`
+//   );
+//   const post = await res.json();
+//   return {
+//     props: {
+//       post,
+//     },
+//   };
+// }
+
+export async function getServerSideProps({ params }) {
+  // Fetch data from external API
   const res = await fetch(
     `https://lwsumit.herokuapp.com/blogs/${params.postId}`
   );
   const post = await res.json();
-  return {
-    props: {
-      post,
-    },
-  };
+
+  return { props: { post } };
 }
