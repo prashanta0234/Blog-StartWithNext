@@ -1,9 +1,9 @@
 import { Container, Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import Nav from "../component/Nav";
+import Nav from "./component/Nav";
 import Banner from "./component/Banner";
-import HomePost from "./component/HomePost";
+// import HomePost from "./component/HomePost";
 import HomePosts from "./component/HomePosts";
 
 export default function Index() {

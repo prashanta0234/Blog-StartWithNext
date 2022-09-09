@@ -17,7 +17,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import Link from "next/link";
 
-export default function HomePost({ blog }) {
+export default function Post({ blog }) {
   return (
     <>
       <Grid item xs={2} sm={4} md={4}>

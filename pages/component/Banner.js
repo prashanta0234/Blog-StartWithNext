@@ -13,8 +13,20 @@ export default function Banner() {
     fetcher
   );
 
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (!data && !error) {
+    return (
+      <Box>
+        <Typography sx={{ color: "black" }}>Loding.....</Typography>
+      </Box>
+    );
+  }
+  if (error) {
+    return (
+      <Box>
+        <Typography sx={{ color: "black" }}>{error}</Typography>
+      </Box>
+    );
+  }
 
   const first3 = data.slice(-3);
   const newest = first3.reverse();
@@ -122,7 +134,7 @@ export default function Banner() {
             </Box>
 
             {/* last one */}
-            <Box height="50%" sx={{ bgcolor: "yellow" }}>
+            <Box height="50%" width="100%" sx={{ mb: "5px" }}>
               <Link href={`component/${newest[2].id}`} passHref>
                 <Box
                   sx={{ height: "100%", width: "100%", position: "relative" }}

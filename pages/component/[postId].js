@@ -1,14 +1,21 @@
-import { Typography } from "@mui/material";
+import { Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Nav from "./Nav";
 
 export default function Postdetails({ post }) {
   console.log(post);
   return (
-    <Box>
-      <Typography sx={{ color: "black" }}>{post.title}</Typography>
-    </Box>
+    <>
+      <Nav />
+      <Toolbar />
+      <Toolbar />
+      <Toolbar />{" "}
+      <Box>
+        <Typography sx={{ color: "black" }}>{post.title}</Typography>
+      </Box>
+    </>
   );
 }
 

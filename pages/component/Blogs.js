@@ -1,12 +1,13 @@
-import { Box, Button, Grid, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Grid, Link, Toolbar, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-import Link from "next/link";
 import React from "react";
 import useSWR from "swr";
+import Nav from "./Nav";
+// import Top from "../../component/Top";
 import Post from "./Post";
-// import Posts from "./Posts";
+// import HomePost from "./Post";
 
-export default function HomePosts() {
+export default function Blogs() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error } = useSWR(
     "https://lwsumit.herokuapp.com/blogs",
@@ -18,19 +19,13 @@ export default function HomePosts() {
   if (error) {
     return <Typography sx={{ color: "black" }}>{error}</Typography>;
   }
-  const limit = data.slice(0, 6);
-  console.log(data);
   return (
     <>
-      <Toolbar />
-      <Typography
-        sx={{ color: "black", textAlign: "center", color: "#0B1222" }}
-        variant="h4"
-      >
-        Posts{" "}
-      </Typography>
-      <Toolbar />
+      <Nav />
       <Container>
+        <Toolbar />
+        <Toolbar />
+        <Toolbar />
         <Grid
           container
           spacing={{ xs: 2, md: 3, lg: 3 }}
@@ -38,19 +33,10 @@ export default function HomePosts() {
           rowSpacing={3}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         >
-          {limit?.map((blog) => (
+          {data?.map((blog) => (
             <Post key={blog.id} blog={blog} />
           ))}
         </Grid>
-        <Toolbar />
-        <Box sx={{ textAlign: "center" }}>
-          <Link href={"/component/Blogs"}>
-            <Button variant="contained" color="success">
-              See More
-            </Button>
-          </Link>
-        </Box>
-
         <Toolbar />
       </Container>
     </>
