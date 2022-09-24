@@ -23,12 +23,7 @@ export default function Post({ blog }) {
       <Grid item xs={2} sm={4} md={4}>
         <Card sx={{ maxWidth: 345 }}>
           <CardActionArea>
-            <CardMedia
-              component="img"
-              height="140"
-              image={blog.img}
-              alt="green iguana"
-            />
+            <Image src={blog.img} height={400} width={800} alt="" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {blog.title.slice(0, 25)}

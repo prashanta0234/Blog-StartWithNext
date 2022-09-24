@@ -47,14 +47,16 @@ export default function Banner() {
             {/* first card */}
             <Link href={`component/${newest[0].id}`} passHref>
               <Box sx={{ height: 400, width: "100%", position: "relative" }}>
-                <img
+                <Image
                   src={newest[0].img}
                   // srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt="here is an image"
                   loading="lazy"
                   // objectFit="contain"
-                  height="100%"
-                  width="100%"
+                  layout="fill"
+                  sizes="(max-width: 768px) 100vw,
+                          (max-width: 1200px) 50vw,
+                          33vw"
                 />
                 <Box
                   sx={{
