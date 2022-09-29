@@ -4,7 +4,6 @@ import Link from "next/link";
 import React from "react";
 import useSWR from "swr";
 import Post from "./Post";
-// import Posts from "./Posts";
 
 export default function HomePosts() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());

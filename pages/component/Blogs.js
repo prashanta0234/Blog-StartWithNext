@@ -3,9 +3,8 @@ import { Container } from "@mui/system";
 import React from "react";
 import useSWR from "swr";
 import Nav from "./Nav";
-// import Top from "../../component/Top";
+
 import Post from "./Post";
-// import HomePost from "./Post";
 
 export default function Blogs() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
